@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    color: #fff;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 48px;
+    color: #fff;
+    border: 3px solid rgba(255,255,255,0.5);
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #ff6b9d;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ffe0eb;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.criteria-list {
+    list-style: none;
+}
+
+.criteria-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+    font-size: 15px;
+}
+
+.criteria-list li:last-child {
+    border-bottom: none;
+}
+
+.criteria-list li::before {
+    content: "♡ ";
+    color: #ff6b9d;
+}
+
+.contact-card {
+    text-align: center;
+}
+
+.wechat-label {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.wechat-id {
+    font-size: 28px;
+    font-weight: bold;
+    color: #07c160;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hint {
+    font-size: 13px;
+    color: #999;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+}
+
+@media (max-width: 400px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
