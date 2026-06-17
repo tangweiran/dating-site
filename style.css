@@ -441,14 +441,29 @@ body {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px 15px;
+    animation: fadeInUp 0.5s ease;
 }
 
 .sub-title {
     color: #fff;
-    font-size: 28px;
+    font-size: 32px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.sub-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 2px;
 }
 
 .loading {
@@ -462,21 +477,32 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
 }
 
 .loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(255,255,255,0.3);
-    border-top: 4px solid #fff;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top: 3px solid #fff;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 0.6s linear infinite;
 }
 
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .back-to-top {
