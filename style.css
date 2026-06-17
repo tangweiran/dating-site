@@ -36,6 +36,17 @@ body {
     border: 3px solid rgba(255,255,255,0.5);
 }
 
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    display: block;
+    border: 3px solid rgba(255,255,255,0.5);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
 .header h1 {
     font-size: 32px;
     margin-bottom: 10px;
