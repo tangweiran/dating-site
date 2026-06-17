@@ -28,12 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    if (typeof busuanzi !== 'undefined') {
-        const script = document.createElement('script');
-        script.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-        document.head.appendChild(script);
-    }
-
     const loading = document.getElementById('loading');
     if (loading) {
         setTimeout(() => {
@@ -41,4 +35,18 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => { loading.style.display = 'none'; }, 300);
         }, 300);
     }
+
+    const hearts = ['❤️', '💕', '💖', '💗', '💓', '💘', '🌸', '✨'];
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 1500);
+    for (let i = 0; i < 5; i++) setTimeout(createHeart, i * 300);
 });
