@@ -149,14 +149,44 @@
         const bgMusic = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         let isPlaying = false;
+
+        function startMusic() {
+            if (isPlaying) return;
+            bgMusic.play().then(() => {
+                musicBtn.classList.add('playing');
+                isPlaying = true;
+            }).catch(() => {});
+        }
+
         function toggleMusic() {
             if (isPlaying) { bgMusic.pause(); musicBtn.classList.remove('playing'); }
             else { bgMusic.play(); musicBtn.classList.add('playing'); }
             isPlaying = !isPlaying;
         }
-        document.addEventListener('click', () => {
-            if (!isPlaying) { bgMusic.play(); musicBtn.classList.add('playing'); isPlaying = true; }
-        }, { once: true });
+
+        window.addEventListener('load', () => {
+            bgMusic.muted = true;
+            bgMusic.play().then(() => {
+                bgMusic.muted = false;
+                musicBtn.classList.add('playing');
+                isPlaying = true;
+            }).catch(() => {
+                bgMusic.muted = false;
+            });
+        });
+
+        const tryPlay = () => {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    musicBtn.classList.add('playing');
+                    isPlaying = true;
+                }).catch(() => {});
+            }
+        };
+
+        document.addEventListener('touchstart', tryPlay, { once: true });
+        document.addEventListener('mousemove', tryPlay, { once: true });
+        document.addEventListener('scroll', tryPlay, { once: true });
     </script>
 </body>
 </html>
