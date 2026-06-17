@@ -8,7 +8,7 @@ body {
     font-family: "Microsoft YaHei", sans-serif;
     background: linear-gradient(135deg, #ff6b9d, #ff8e53);
     min-height: 100vh;
-    padding: 20px;
+    padding: 15px;
 }
 
 .container {
@@ -18,98 +18,122 @@ body {
 
 .header {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     color: #fff;
 }
 
 .avatar-img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 15px;
+    margin: 0 auto 10px;
     display: block;
     border: 3px solid rgba(255,255,255,0.5);
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
 .header h1 {
-    font-size: 28px;
-    margin-bottom: 8px;
-}
-
-.avatar {
-    width: 100px;
-    height: 100px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 48px;
-    color: #fff;
-    border: 3px solid rgba(255,255,255,0.5);
-}
-
-.avatar-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 20px;
-    display: block;
-    border: 3px solid rgba(255,255,255,0.5);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-
-.header h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
 .subtitle {
-    font-size: 16px;
+    font-size: 14px;
     opacity: 0.9;
 }
 
 .card {
     background: #fff;
     border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 15px;
+    padding: 18px;
+    margin-bottom: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .card h2 {
     color: #ff6b9d;
-    font-size: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
     border-bottom: 2px solid #ffe0eb;
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
 }
 
 .info-item {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .label {
-    font-size: 13px;
+    font-size: 12px;
     color: #999;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .value {
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
     font-weight: 500;
+}
+
+.section-title {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin: 15px 0 12px;
+    opacity: 0.9;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.nav-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 8px;
+    background: #fff;
+    border-radius: 16px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.nav-icon {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.nav-title {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
 }
 
 .criteria-list {
@@ -117,7 +141,7 @@ body {
 }
 
 .criteria-list li {
-    padding: 12px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #f0f0f0;
     color: #555;
     font-size: 15px;
@@ -153,62 +177,6 @@ body {
 .hint {
     font-size: 13px;
     color: #999;
-}
-
-.footer {
-    text-align: center;
-    padding: 15px;
-    color: rgba(255,255,255,0.8);
-    font-size: 14px;
-}
-
-.section-title {
-    color: #fff;
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 15px;
-    opacity: 0.9;
-}
-
-.nav-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.nav-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 10px;
-    background: #fff;
-    border-radius: 16px;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.nav-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-.nav-icon {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.nav-title {
-    font-size: 14px;
-    color: #333;
-    font-weight: 500;
-    text-align: center;
-}
-
-.nav-arrow {
-    display: none;
 }
 
 .hobby-text {
@@ -301,6 +269,6 @@ body {
 
 @media (max-width: 400px) {
     .info-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
