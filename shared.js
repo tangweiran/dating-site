@@ -36,17 +36,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
 
-    const hearts = ['❤️', '💕', '💖', '💗', '💓', '💘', '🌸', '✨'];
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.className = 'floating-heart';
-        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
-        heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 8000);
+    const petals = ['🌸', '🌸', '🌸', '🌸', '🌸', '🌺', '💮', '🏵️'];
+    function createPetal() {
+        const petal = document.createElement('div');
+        petal.className = 'floating-heart';
+        petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = (Math.random() * 3 + 5) + 's';
+        petal.style.fontSize = (Math.random() * 12 + 10) + 'px';
+        petal.style.opacity = Math.random() * 0.5 + 0.3;
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 10000);
     }
-    setInterval(createHeart, 1500);
-    for (let i = 0; i < 5; i++) setTimeout(createHeart, i * 300);
+    for (let i = 0; i < 8; i++) setTimeout(createPetal, i * 200);
+    setInterval(createPetal, 600);
 });
