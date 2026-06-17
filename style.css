@@ -665,6 +665,279 @@ body {
     box-shadow: 0 5px 15px rgba(255,107,157,0.4);
 }
 
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.like-btn {
+    padding: 8px 24px;
+    background: #fff;
+    color: #ff6b9d;
+    border: 2px solid #ff6b9d;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.like-btn:hover {
+    transform: translateY(-2px);
+}
+
+.like-btn.liked {
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    color: #fff;
+    border-color: transparent;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(20deg);
+}
+
+.timeline-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.timeline-card h2 {
+    color: #ff6b9d;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.timeline {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, #ff6b9d, #ff8e53);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-content {
+    padding: 15px;
+    background: #fff5f7;
+    border-radius: 12px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+}
+
+.timeline-content h3 {
+    color: #ff6b9d;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    color: #555;
+    font-size: 13px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff6b9d;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    top: 15px;
+    z-index: 1;
+}
+
+.timeline-item.left::after {
+    right: -6px;
+}
+
+.timeline-item.right::after {
+    left: -6px;
+}
+
+.game-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.game-card h2 {
+    color: #ff6b9d;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.fortune-display {
+    font-size: 16px;
+    color: #555;
+    padding: 20px;
+    background: #fff5f7;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.game-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.game-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,107,157,0.4);
+}
+
+.mouse-trail {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, rgba(255,107,157,0.8), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    animation: trailFade 0.8s ease-out forwards;
+}
+
+@keyframes trailFade {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+    background-size: 200% 200% !important;
+}
+
+.dark-mode .profile-card,
+.dark-mode .guestbook,
+.dark-mode .quote-card,
+.dark-mode .timeline-card,
+.dark-mode .game-card {
+    background: rgba(30,30,50,0.95) !important;
+}
+
+.dark-mode .profile-card h1,
+.dark-mode .timeline-content h3,
+.dark-mode .game-card h2,
+.dark-mode .timeline-card h2 {
+    color: #ff8e53 !important;
+}
+
+.dark-mode .value,
+.dark-mode .bio-text,
+.dark-mode .hobby-text,
+.dark-mode .quote-text,
+.dark-mode .timeline-content p,
+.dark-mode .fortune-display,
+.dark-mode .guestbook-msg p {
+    color: #ddd !important;
+}
+
+.dark-mode .label,
+.dark-mode .countdown-label,
+.dark-mode .countdown-hint {
+    color: #888 !important;
+}
+
+.dark-mode .info-item:hover {
+    background: rgba(255,107,157,0.1) !important;
+}
+
+.dark-mode .sidebar-link {
+    background: rgba(255,255,255,0.1) !important;
+}
+
+.dark-mode .sidebar-link:hover {
+    background: rgba(255,255,255,0.2) !important;
+}
+
+.dark-mode .sub-container .bio-text,
+.dark-mode .sub-container .hobby-text,
+.dark-mode .sub-container .criteria-list li,
+.dark-mode .sub-container .attitude-item,
+.dark-mode .timeline-content,
+.dark-mode .fortune-display {
+    background: rgba(255,107,157,0.1) !important;
+}
+
+.dark-mode .guestbook-input,
+.dark-mode .guestbook-textarea {
+    background: rgba(255,255,255,0.1) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+    color: #fff !important;
+}
+
+.dark-mode .sub-title {
+    color: #ff8e53 !important;
+}
+
 @media (max-width: 900px) {
     .page-wrapper {
         flex-direction: column;
@@ -685,5 +958,23 @@ body {
     }
     .info-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .timeline::after {
+        left: 31px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 10px;
+    }
+    .timeline-item.right {
+        left: 0;
+    }
+    .timeline-item.left,
+    .timeline-item.right {
+        text-align: left;
+    }
+    .timeline-item::after {
+        left: 25px;
     }
 }

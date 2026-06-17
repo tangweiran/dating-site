@@ -11,6 +11,8 @@
         <div class="loading-spinner"></div>
     </div>
 
+    <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</div>
+
     <div class="page-wrapper">
         <aside class="sidebar">
             <nav class="sidebar-nav">
@@ -29,7 +31,7 @@
             <div class="profile-card fade-in">
                 <img src="photo.png" alt="朱灵杰" class="main-avatar">
                 <h1>朱灵杰</h1>
-                <p class="subtitle">真诚寻找另一半</p>
+                <p class="subtitle" id="greeting"></p>
                 <div class="info-grid">
                     <div class="info-item">
                         <span class="label">年龄</span>
@@ -65,7 +67,10 @@
                     <span class="countdown-label">分钟</span>
                 </div>
                 <p class="countdown-hint">我们认识</p>
-                <button id="shareBtn" class="share-btn">分享</button>
+                <div class="action-buttons">
+                    <button id="shareBtn" class="share-btn">分享</button>
+                    <button id="likeBtn" class="like-btn" onclick="toggleLike()">👍 <span id="likeCount">0</span></button>
+                </div>
             </div>
         </main>
 
@@ -89,6 +94,48 @@
         </section>
     </div>
 
+    <div class="bottom-row">
+        <section class="timeline-card fade-in">
+            <h2>我的经历</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2004年</h3>
+                        <p>出生在重庆</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2022年</h3>
+                        <p>考入重庆邮电大学</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2026年</h3>
+                        <p>攻读硕士学位</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>未来</h3>
+                        <p>遇见你 ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="bottom-row">
+        <section class="game-card fade-in">
+            <h2>每日抽签</h2>
+            <div class="game-content">
+                <div class="fortune-display" id="fortune">点击下方按钮抽签</div>
+                <button class="game-btn" onclick="drawFortune()">🔮 抽签</button>
+            </div>
+        </section>
+    </div>
+
     <div class="music-player">
         <button onclick="toggleMusic()" class="music-btn" id="musicBtn">♪</button>
     </div>
@@ -100,6 +147,18 @@
 
     <script src="shared.js"></script>
     <script>
+        const hour = new Date().getHours();
+        let greeting = '';
+        if (hour < 6) greeting = '🌙 夜深了，注意休息哦';
+        else if (hour < 9) greeting = '🌅 早安，新的一天开始了';
+        else if (hour < 12) greeting = '☀️ 上午好，今天也要加油';
+        else if (hour < 14) greeting = '🌞 中午好，记得吃午饭';
+        else if (hour < 17) greeting = '🌤️ 下午好，继续努力';
+        else if (hour < 19) greeting = '🌅 傍晚好，辛苦了一天';
+        else if (hour < 22) greeting = '🌆 晚上好，放松一下吧';
+        else greeting = '🌙 夜深了，早点休息哦';
+        document.getElementById('greeting').textContent = greeting;
+
         const quotes = [
             "遇见你，是我最美丽的意外。",
             "你是我温暖的手套，冰冷的啤酒，带着阳光味道的衬衫，日复一日的梦想。",
@@ -122,7 +181,18 @@
             "喜欢你是一件很麻烦的事，但我偏偏喜欢找麻烦。",
             "我对你的喜欢，就像是揣在兜里的一块糖，明明想和别人显摆，却又怕别人抢。"
         ];
-        document.getElementById('quote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+        const quoteEl = document.getElementById('quote');
+        const quoteText = quotes[Math.floor(Math.random() * quotes.length)];
+        let i = 0;
+        function typeWriter() {
+            if (i < quoteText.length) {
+                quoteEl.textContent += quoteText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        typeWriter();
 
         function updateCountdown() {
             const startDate = new Date('2026-06-17');
@@ -134,6 +204,26 @@
         }
         updateCountdown();
         setInterval(updateCountdown, 60000);
+
+        let likeCount = parseInt(localStorage.getItem('likeCount') || '0');
+        let liked = localStorage.getItem('liked') === 'true';
+        document.getElementById('likeCount').textContent = likeCount;
+        if (liked) document.getElementById('likeBtn').classList.add('liked');
+
+        function toggleLike() {
+            if (liked) {
+                likeCount--;
+                liked = false;
+                document.getElementById('likeBtn').classList.remove('liked');
+            } else {
+                likeCount++;
+                liked = true;
+                document.getElementById('likeBtn').classList.add('liked');
+            }
+            localStorage.setItem('likeCount', likeCount);
+            localStorage.setItem('liked', liked);
+            document.getElementById('likeCount').textContent = likeCount;
+        }
 
         const guestbook = JSON.parse(localStorage.getItem('guestbook') || '[{"name":"66A","message":"男神，"}]');
         function renderGuestbook() {
@@ -154,6 +244,29 @@
             document.getElementById('guestMessage').value = '';
         }
 
+        const fortunes = [
+            '上上签 🌟 今日运势极佳，万事如意！',
+            '上签 ✨ 诸事顺利，心想事成！',
+            '中上签 🌸 稳中有进，保持乐观！',
+            '中签 🍀 平平淡淡才是真！',
+            '中下签 💪 需要努力，但不要放弃！',
+            '下签 🌧️ 今天可能有点小波折，但会过去的！',
+            '桃花签 💕 今日桃花运旺盛！',
+            '事业签 🎯 工作学业会有新突破！',
+            '财运签 💰 小财不断，大财可期！',
+            '健康签 💚 注意休息，身体最重要！'
+        ];
+
+        function drawFortune() {
+            const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+            const el = document.getElementById('fortune');
+            el.style.opacity = '0';
+            setTimeout(() => {
+                el.textContent = fortune;
+                el.style.opacity = '1';
+            }, 300);
+        }
+
         const musicBtn = document.getElementById('musicBtn');
         let isPlaying = false;
 
@@ -170,6 +283,28 @@
             musicBtn.classList.add('playing');
             isPlaying = true;
         }, 1000);
+
+        const dark = localStorage.getItem('darkMode') === 'true';
+        if (dark) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeToggle').textContent = '☀️';
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            document.getElementById('themeToggle').textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', isDark);
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.className = 'mouse-trail';
+            trail.style.left = e.clientX + 'px';
+            trail.style.top = e.clientY + 'px';
+            document.body.appendChild(trail);
+            setTimeout(() => trail.remove(), 800);
+        });
     </script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
