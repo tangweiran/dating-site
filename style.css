@@ -12,8 +12,28 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+.content-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.content-left {
+    flex: 1;
+}
+
+.content-right {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.content-right .card {
+    position: sticky;
+    top: 15px;
 }
 
 .fade-in {
