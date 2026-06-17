@@ -16,6 +16,17 @@ body {
     margin: 0 auto;
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .header {
     text-align: center;
     padding: 15px;
@@ -84,6 +95,45 @@ body {
     font-weight: 500;
 }
 
+.countdown-card {
+    text-align: center;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.countdown-num {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff6b9d;
+}
+
+.countdown-label {
+    font-size: 14px;
+    color: #999;
+}
+
+.countdown-hint {
+    font-size: 13px;
+    color: #999;
+}
+
+.quote-card {
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    font-style: italic;
+}
+
 .section-title {
     color: #fff;
     font-size: 16px;
@@ -105,7 +155,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 18px 8px;
-    background: #fff;
     border-radius: 16px;
     text-decoration: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -124,9 +173,105 @@ body {
 
 .nav-title {
     font-size: 13px;
-    color: #333;
+    color: #fff;
     font-weight: 500;
     text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.guestbook-card {
+    margin-bottom: 20px;
+}
+
+.guestbook-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.guestbook-input, .guestbook-textarea {
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+.guestbook-textarea {
+    height: 80px;
+    resize: none;
+}
+
+.guestbook-btn {
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.guestbook-btn:hover {
+    transform: translateY(-2px);
+}
+
+.guestbook-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.guestbook-msg {
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.guestbook-msg strong {
+    color: #ff6b9d;
+    font-size: 14px;
+}
+
+.guestbook-msg p {
+    color: #555;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.music-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+}
+
+.music-btn.playing {
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .footer {
