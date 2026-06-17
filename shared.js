@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
         petal.className = 'floating-heart';
         petal.textContent = petals[Math.floor(Math.random() * petals.length)];
         petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDuration = (Math.random() * 3 + 5) + 's';
-        petal.style.fontSize = (Math.random() * 12 + 10) + 'px';
-        petal.style.opacity = Math.random() * 0.5 + 0.3;
+        petal.style.animationDuration = (Math.random() * 5 + 10) + 's';
+        petal.style.fontSize = (Math.random() * 18 + 8) + 'px';
+        petal.style.opacity = Math.random() * 0.4 + 0.3;
         document.body.appendChild(petal);
-        setTimeout(() => petal.remove(), 10000);
+        setTimeout(() => petal.remove(), 18000);
     }
-    for (let i = 0; i < 8; i++) setTimeout(createPetal, i * 200);
-    setInterval(createPetal, 600);
+    for (let i = 0; i < 10; i++) setTimeout(createPetal, i * 300);
+    setInterval(createPetal, 800);
 });
