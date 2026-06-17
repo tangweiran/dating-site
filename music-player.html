@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <audio id="bgMusic" loop autoplay>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        const music = document.getElementById('bgMusic');
+        const pos = sessionStorage.getItem('musicPos');
+        if (pos) music.currentTime = parseFloat(pos);
+        music.play().catch(() => {});
+        setInterval(() => {
+            sessionStorage.setItem('musicPos', music.currentTime);
+        }, 1000);
+    </script>
+</head>
+<body></body>
+</html>

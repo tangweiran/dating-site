@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
     <div class="page-wrapper">
         <aside class="sidebar">
             <nav class="sidebar-nav">
@@ -62,6 +66,10 @@
                     <span class="countdown-label">分钟</span>
                 </div>
                 <p class="countdown-hint">我们认识</p>
+                <div class="visitor-count">
+                    <span id="busuanzi_value_site_pv">0</span> 人来访
+                </div>
+                <button id="shareBtn" class="share-btn">分享</button>
             </div>
         </main>
 
@@ -87,15 +95,14 @@
 
     <div class="music-player">
         <button onclick="toggleMusic()" class="music-btn" id="musicBtn">♪</button>
-        <audio id="bgMusic" loop>
-            <source src="music.mp3" type="audio/mpeg">
-        </audio>
     </div>
 
     <footer class="footer">
         <p>真诚交友，非诚勿扰</p>
+        <p>本站访客：<span id="busuanzi_value_site_uv">0</span> 人</p>
     </footer>
 
+    <script src="shared.js"></script>
     <script>
         const quotes = [
             "遇见你，是我最美丽的意外。",
@@ -141,52 +148,23 @@
             document.getElementById('guestMessage').value = '';
         }
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        const bgMusic = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         let isPlaying = false;
 
-        function startMusic() {
-            if (isPlaying) return;
-            bgMusic.play().then(() => {
-                musicBtn.classList.add('playing');
-                isPlaying = true;
-            }).catch(() => {});
-        }
-
         function toggleMusic() {
-            if (isPlaying) { bgMusic.pause(); musicBtn.classList.remove('playing'); }
-            else { bgMusic.play(); musicBtn.classList.add('playing'); }
+            const iframe = document.querySelector('iframe[src="music-player.html"]');
+            if (!iframe) return;
+            const music = iframe.contentDocument.getElementById('bgMusic');
+            if (isPlaying) { music.pause(); musicBtn.classList.remove('playing'); }
+            else { music.play(); musicBtn.classList.add('playing'); }
             isPlaying = !isPlaying;
         }
 
-        window.addEventListener('load', () => {
-            bgMusic.muted = true;
-            bgMusic.play().then(() => {
-                bgMusic.muted = false;
-                musicBtn.classList.add('playing');
-                isPlaying = true;
-            }).catch(() => {
-                bgMusic.muted = false;
-            });
-        });
-
-        const tryPlay = () => {
-            if (!isPlaying) {
-                bgMusic.play().then(() => {
-                    musicBtn.classList.add('playing');
-                    isPlaying = true;
-                }).catch(() => {});
-            }
-        };
-
-        document.addEventListener('touchstart', tryPlay, { once: true });
-        document.addEventListener('mousemove', tryPlay, { once: true });
-        document.addEventListener('scroll', tryPlay, { once: true });
+        setTimeout(() => {
+            musicBtn.classList.add('playing');
+            isPlaying = true;
+        }, 1000);
     </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>
