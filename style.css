@@ -135,6 +135,56 @@ body {
     font-size: 14px;
 }
 
+.hobby-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hobby-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255,107,157,0.4);
+}
+
+.arrow {
+    font-size: 20px;
+}
+
+.hobby-text {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #fff;
+}
+
+.hobbies-desc {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
 @media (max-width: 400px) {
     .info-grid {
         grid-template-columns: 1fr;
