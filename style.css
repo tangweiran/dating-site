@@ -207,6 +207,73 @@ body {
     color: #fff;
 }
 
+.bio-text {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.photo-placeholder {
+    background: #f5f5f5;
+    border-radius: 12px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+}
+
+.photo-hint {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+.attitude-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.attitude-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.attitude-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.attitude-item p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
 @media (max-width: 400px) {
     .info-grid {
         grid-template-columns: 1fr;
