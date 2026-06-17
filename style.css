@@ -11,29 +11,9 @@ body {
     padding: 15px;
 }
 
-.container {
-    max-width: 900px;
+.page-container {
+    max-width: 1100px;
     margin: 0 auto;
-}
-
-.content-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.content-left {
-    flex: 1;
-}
-
-.content-right {
-    width: 300px;
-    flex-shrink: 0;
-}
-
-.content-right .card {
-    position: sticky;
-    top: 15px;
 }
 
 .fade-in {
@@ -49,13 +29,13 @@ body {
 
 .header {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     color: #fff;
 }
 
 .avatar-img {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 10px;
@@ -65,13 +45,74 @@ body {
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 5px;
 }
 
 .subtitle {
     font-size: 14px;
     opacity: 0.9;
+}
+
+.three-col {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.col-left {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.col-center {
+    flex: 1;
+}
+
+.col-right {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.col-title {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.nav-icon {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.nav-label {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .card {
@@ -92,8 +133,8 @@ body {
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
 .info-item {
@@ -128,7 +169,7 @@ body {
 }
 
 .countdown-num {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
     color: #ff6b9d;
 }
@@ -154,72 +195,28 @@ body {
     font-style: italic;
 }
 
-.section-title {
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    margin: 15px 0 12px;
-    opacity: 0.9;
-}
-
-.nav-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.nav-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 18px 8px;
-    border-radius: 16px;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.nav-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-.nav-icon {
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-.nav-title {
-    font-size: 13px;
-    color: #fff;
-    font-weight: 500;
-    text-align: center;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
 .guestbook-card {
-    margin-bottom: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .guestbook-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .guestbook-input, .guestbook-textarea {
-    padding: 12px;
+    padding: 10px;
     border: 1px solid #eee;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Microsoft YaHei", sans-serif;
 }
 
 .guestbook-textarea {
-    height: 80px;
+    height: 60px;
     resize: none;
 }
 
@@ -227,9 +224,9 @@ body {
     background: linear-gradient(135deg, #ff6b9d, #ff8e53);
     color: #fff;
     border: none;
-    padding: 12px;
+    padding: 10px;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -241,24 +238,24 @@ body {
 .guestbook-messages {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .guestbook-msg {
-    padding: 12px;
+    padding: 10px;
     background: #f9f9f9;
     border-radius: 10px;
 }
 
 .guestbook-msg strong {
     color: #ff6b9d;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .guestbook-msg p {
     color: #555;
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 13px;
+    margin-top: 4px;
 }
 
 .music-player {
@@ -432,8 +429,19 @@ body {
     line-height: 1.6;
 }
 
-@media (max-width: 400px) {
-    .info-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 900px) {
+    .three-col {
+        flex-direction: column;
+    }
+    .col-left, .col-center, .col-right {
+        width: 100%;
+    }
+    .nav-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-item {
+        width: calc(33% - 10px);
     }
 }
