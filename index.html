@@ -114,6 +114,9 @@
 
         <div class="music-player" id="musicPlayer">
             <button onclick="toggleMusic()" class="music-btn" id="musicBtn">♪</button>
+            <audio id="bgMusic" loop>
+                <source src="music.mp3" type="audio/mpeg">
+            </audio>
         </div>
 
         <footer class="footer">
@@ -183,6 +186,30 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                bgMusic.play();
+                musicBtn.classList.add('playing');
+                isPlaying = true;
+            }
+        }
+
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                bgMusic.play();
+                musicBtn.classList.add('playing');
+                isPlaying = true;
+            }
+        }, { once: true });
     </script>
 </body>
 </html>
