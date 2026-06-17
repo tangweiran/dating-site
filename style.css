@@ -436,3 +436,17 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.sub-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+.sub-title {
+    color: #fff;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
